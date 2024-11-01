@@ -1,0 +1,17 @@
+faiss-cpu
+groq
+langchain-groq
+PyPDF2
+langchain_google_genai
+langchain
+streamlit
+langchain_community
+python-dotenv
+pypdf
+flask 
+pandas 
+numpy 
+scikit-learn 
+sentence-transformers 
+pinecone-client
+python-dotenv
