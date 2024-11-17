@@ -38,14 +38,11 @@ class RAGSystem:
             context += f"Marks: {match['metadata']['Average Student Marks']}\n\n"
 
         # Generate suggestion using Groq
-        prompt = f"""Based on the following information about similar courses and topics:
+        prompt = f"""With the given information for the course "{course_name}":
 
 {context}
 
-Suggest effective top 3 pedagogies for teaching the course "{course_name}". 
-Provide a detailed explanation of why these pedagogies would be effective, considering the average student feedback and  average marks from similar courses.
-"""
-
+Identify and suggest the top 3 teaching pedagogies that would be most impactful for this course. Justify your choices using insights from average student marks and feedback to show why these methods would yield the best learning results.Make sure to not print the calculations of average student marks and student feedback"""
         # Call the Groq API to generate text
         chat_completion = self.client.chat.completions.create(
             messages=[{
@@ -53,7 +50,7 @@ Provide a detailed explanation of why these pedagogies would be effective, consi
                 "content": prompt,
             }],
             model="mixtral-8x7b-32768",  # You can change this to the model you prefer
-            temperature=0.7,
+            temperature=0.8,
             max_tokens=2000,
         )
 
